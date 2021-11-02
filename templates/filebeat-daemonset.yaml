@@ -1,25 +1,20 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: app-auto
+  name: filebeat-auto
   labels:
-    name: app-auto
+    name: filebeat-auto
 spec:
   # replicas: 1
   selector:
     matchLabels:
-      name: app-auto
+      name: filebeat-auto
   template:
     metadata:
       labels:
-        name: app-auto
+        name: filebeat-auto
     spec:
       containers:
-      # - name: app-auto
-      #   image: sladesoftware/log-application:latest
-      #   volumeMounts:
-      #   - name: log-output
-      #     mountPath: /tmp/
       - name: beat-auto
         image: elastic/filebeat:7.8.0
         env:
